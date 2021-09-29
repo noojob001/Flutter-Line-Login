@@ -81,15 +81,15 @@ class _MyHomePageState extends State<MyHomePage> {
     print(e);
     switch (e.code.toString()){
       case "CANCEL":
-          showDialogBox("คุณยกเลิกการเข้าสู่ระบบ", "เมื่อสักครู่คุณกดยกเลิกการเข้าสู่ระบบ กรุณาเข้าสู่ระบบใหม่อีกครั้ง");
+          showDialogBox("Cancel Login", "เมื่อสักครู่คุณกดยกเลิกการเข้าสู่ระบบ กรุณาเข้าสู่ระบบใหม่อีกครั้ง");
           print("User Cancel the login");
           break;
       case "AUTHENTICATION_AGENT_ERROR":
-          showDialogBox("คุณไม่อนุญาติการเข้าสู่ระบบด้วย LINE", "เมื่อสักครู่คุณกดยกเลิกการเข้าสู่ระบบ กรุณาเข้าสู่ระบบใหม่อีกครั้ง");
+          showDialogBox("You do not have permission to Login", "เมื่อสักครู่คุณกดยกเลิกการเข้าสู่ระบบ กรุณาเข้าสู่ระบบใหม่อีกครั้ง");
           print("User decline the login");
           break;
       default:
-          showDialogBox("เกิดข้อผิดพลาด", "เกิดข้อผิดพลาดไม่ทราบสาเหตุ กรุณาเข้าสู่ระบบใหม่อีกครั้ง");
+          showDialogBox("Something went wrong", "เกิดข้อผิดพลาดไม่ทราบสาเหตุ กรุณาเข้าสู่ระบบใหม่อีกครั้ง");
           print("Unknown but failed to login");
           break;
     }
@@ -117,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           actions: <Widget>[
             FlatButton(
-              child: Text("ปิด"),
+              child: Text("Close"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -146,29 +146,32 @@ void lineSDKInit() async{
       ),
       body: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.only(bottom: 50),
+                padding: const EdgeInsets.only(bottom: 60,top:80),
                 child: Image.network(
                                     'https://upload.wikimedia.org/wikipedia/commons/2/2e/LINE_New_App_Icon_%282020-12%29.png', 
-                                    width: 200, height: 200,),
+                                    width: 100, height: 100,),
               ),
-              Text("ยินดีต้อนรับเข้าสู่ App", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold ),),
-              Text("กรุณาเข้าสู่ระบบก่อนเข้าใช้งาน", style: TextStyle(fontSize: 15,)),
+              Text("Welcome To Flutter Line App", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold ),),
               Padding(
-                padding: const EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.only(top:20.0),
+                child: Text("Please Login", style: TextStyle(fontSize: 18,)),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 30),
                 child: Row(
                   children: <Widget>[
                     
 
                     Expanded(
                       child: Container(
-                        margin: const EdgeInsets.only(top: 0, bottom: 10, right: 10, left: 10),
+                        margin: const EdgeInsets.only(top: 30, bottom: 10, right: 20, left: 10),
                         child: RaisedButton(
                           color: Color.fromRGBO(0, 185, 0, 1),
                           textColor: Colors.white,
-                          padding: const EdgeInsets.all(1),
+                          padding: const EdgeInsets.all(3),
                           child: Column(
                             children: <Widget>[
                               Row(
@@ -183,7 +186,7 @@ void lineSDKInit() async{
                                     height: 40,
                                   ),
                                   Expanded(
-                                    child: Center(child: Text("เข้าสู่ระบบด้วย LINE", style: TextStyle(
+                                    child: Center(child: Text("Login With LINE", style: TextStyle(
                                       fontSize: 17, fontWeight: FontWeight.bold)))
                                     ,)
                                   ]
