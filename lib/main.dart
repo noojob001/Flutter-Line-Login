@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_line_sdk/flutter_line_sdk.dart';
 
-import 'main_profiel.dart';
+import 'main_profile.dart';
 
 void main() {
   runApp(const MyApp());
